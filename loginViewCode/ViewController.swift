@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Senha:"
-        label.font = .boldSystemFont(ofSize: 15)
+        label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
     
@@ -115,7 +115,7 @@ class ViewController: UIViewController {
     }
     
     func setUpBackgroundColor(){
-        view.backgroundColor = .systemBlue.withAlphaComponent(1.0)
+        view.backgroundColor = .systemRed.withAlphaComponent(1.0)
     }
     
     // MARK: - SETUP ELEMENTOS
