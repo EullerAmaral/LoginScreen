@@ -38,6 +38,7 @@
 		2A7F5CAF29C017EF00280B09 = {
 			isa = PBXGroup;
 			children = (
+				2A971B9329C72D6F008F1C20 /* SecondView */,
 				2A7F5CBA29C017EF00280B09 /* loginViewCode */,
 				2A7F5CB929C017EF00280B09 /* Products */,
 			);
@@ -62,6 +63,13 @@
 				2A7F5CC929C017F300280B09 /* Info.plist */,
 			);
 			path = loginViewCode;
+			sourceTree = "<group>";
+		};
+		2A971B9329C72D6F008F1C20 /* SecondView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SecondView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

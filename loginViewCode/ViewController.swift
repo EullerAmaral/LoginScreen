@@ -1,13 +1,27 @@
 import UIKit
 
+protocol ViewControllerDelegate: AnyObject {
+    func tappedButtonEnter()
+}
+
 class ViewController: UIViewController {
 
+    private weak var delegate: ViewControllerDelegate?
+    
+    public func delegate(delegate: ViewControllerDelegate?){
+        self.delegate = delegate
+        
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationController()
         setUpBackgroundColor()
         setUpAllElements()
         setUpConstraints()
+        
     }
     
     // MARK: - ELEMENTOS
@@ -48,7 +62,7 @@ class ViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Senha:"
-        label.font = .boldSystemFont(ofSize: 20)
+        label.font = .boldSystemFont(ofSize: 15)
         return label
     }()
     
@@ -70,11 +84,19 @@ class ViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Entrar", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .blue
         button.layer.cornerRadius = 7
+        button.addTarget(self, action: #selector(tappedButtonEnter), for: .touchUpInside)
+        
         return button
     }()
+    
+    @objc func tappedButtonEnter(){
+        print(#function)
+        delegate?.tappedButtonEnter()
+    }
     
     // MARK: - setUpDelegate
 
@@ -115,7 +137,11 @@ class ViewController: UIViewController {
     }
     
     func setUpBackgroundColor(){
-        view.backgroundColor = .systemRed.withAlphaComponent(1.0)
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor.systemBlue.cgColor, UIColor.white.cgColor]
+        view.layer.addSublayer(gradientLayer)
+        
     }
     
     // MARK: - SETUP ELEMENTOS
